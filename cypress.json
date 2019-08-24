@@ -1,0 +1,7 @@
+{
+    "baseUrl": "http://cafetownsend-angular-rails.herokuapp.com/",
+    "username": "Luke",
+    "password": "Skywalker",
+    "integrationFolder": "../cypress/integration/cafeTownsend/tests"
+}
+  
