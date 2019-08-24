@@ -19,24 +19,24 @@ describe('Login', function () {
         employeesPage.checkEditIsDisabled();
     })
 
-    it('User is unable to login with non-existing user credentials', function () {
-        cy.log('Is not implemented yet')
-    })
-    
-    it('Pass exclamation appears on valid username field value', function () {
-        cy.log('Is not implemented yet')
-    })
+    // it('User is unable to login with non-existing user credentials', function () {
+    //     cy.log('Test case is not implemented yet');
+    // })
 
-    it('Pass exclamation appears on valid password field value', function () {
-        cy.log('Is not implemented yet')
-    })
+    // it('Pass exclamation appears on valid username field value', function () {
+    //     cy.log('Test case is not implemented yet');
+    // })
 
-    it('Validation exclamation appears on empty username field value', function () {
-        cy.log('Is not implemented yet')
-    })
+    // it('Pass exclamation appears on valid password field value', function () {
+    //     cy.log('Test case is not implemented yet');
+    // })
 
-    it('Validation exclamation appears on empty password field value', function () {
-        cy.log('Is not implemented yet')
-    })
+    // it('Validation exclamation appears on empty username field value', function () {
+    //     cy.log('Test case is not implemented yet');
+    // })
+
+    // it('Validation exclamation appears on empty password field value', function () {
+    //     cy.log('Test case is not implemented yet');
+    // })
 
 })

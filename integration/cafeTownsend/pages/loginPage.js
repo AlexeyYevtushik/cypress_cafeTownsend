@@ -1,65 +1,68 @@
 import BasePage from './basePage.js';
 
-class LoginPage{
-    constructor(){
+class LoginPage {
+    constructor() {
+
+        // Validation of Login Page elements (except common ones)      
         cy.log('Validating Login Page');
         const basePage = new BasePage();
-        cy.url().should('include','/login');
+        cy.url().should('include', '/login');
         cy.get('form[id="login-form"]').should('exist');
-        cy.contains('span','Username*').should('exist');
-        cy.contains('span','Password*').should('exist');
+        cy.contains('span', 'Username*').should('exist');
+        cy.contains('span', 'Password*').should('exist');
         cy.get('form[id="login-form"]').find('input[ng-model="user.name"]').as("username").should('exist');
         cy.get('form[id="login-form"]').find('input[ng-model="user.password"]').as("password").should('exist');
-        cy.contains('button','Login').as('loginButton').should('exist');
-        cy.contains('.info','Username: \"Luke\" Password: \"Skywalker\"');
+        cy.contains('button', 'Login').as('loginButton').should('exist');
+        cy.contains('.info', 'Username: \"Luke\" Password: \"Skywalker\"');
     }
 
-    loginByDefaultUser(){
-        this.enterUsername(Cypress.env('username')); 
-        this.enterPassword(Cypress.env('password')); 
+    // All (not common) page interactions (empty methods are created for future implementation)
+    loginByDefaultUser() {
+        this.enterUsername(Cypress.env('username'));
+        this.enterPassword(Cypress.env('password'));
         this.clickLoginButton();
     }
 
-    login(username,password){
-        this.enterUsername(username); 
-        this.enterPassword(password); 
+    login(username, password) {
+        this.enterUsername(username);
+        this.enterPassword(password);
         this.clickLoginButton();
     }
 
-    enterUsername(string){
+    enterUsername(string) {
         cy.get('@username').type(string);
     }
 
-    enterPassword(string){
+    enterPassword(string) {
         cy.get('@password').type(string);
     }
 
-    clearUsername(string){
+    clearUsername(string) {
         cy.get('@username').clear();
     }
 
-    clearPassword(string){
+    clearPassword(string) {
         cy.get('@username').clear();
     }
 
-    clickLoginButton(){
+    clickLoginButton() {
         cy.get('@loginButton').click();
     }
 
-    checkValidationExcamationForUsername(){
-
+    checkValidationExcamationForUsername() {
+        cy.log('Method is not inplemented yet');
     }
 
-    checkValidationExclamationForPassword(){
-
+    checkValidationExclamationForPassword() {
+        cy.log('Method is not inplemented yet');
     }
 
-    checkPassedExclamationForUsername(){
-
+    checkPassedExclamationForUsername() {
+        cy.log('Method is not inplemented yet');
     }
 
-    checkPassedExclamationForPassword(){
-        
+    checkPassedExclamationForPassword() {
+        cy.log('Method is not inplemented yet');
     }
 
 }

@@ -14,12 +14,12 @@ describe('Delete Entry', function () {
         let employeesPage = new EmployeesPage();
         employeesPage.clickCreate();
         let createPage = new CreatePage();
-        createPage.createNewEntry(id,id,'1985-06-21',id + '@test.com');
+        createPage.createNewEntry(id, id, '1985-06-21', id + '@test.com');
     })
-    
+
     it('Delete entry through Delete button on Employees page', function () {
         let employeesPage = new EmployeesPage();
-        employeesPage.selectEntryByName(id,id);
+        employeesPage.selectEntryByName(id, id);
         employeesPage.clickDelete();
         employeesPage = new EmployeesPage();
         employeesPage.checkEmployeeNotExistInTheList(id);
@@ -27,12 +27,12 @@ describe('Delete Entry', function () {
 
     it('Delete entry through Delete button on Edit page', function () {
         let employeesPage = new EmployeesPage();
-        employeesPage.selectEntryByName(id,id);
+        employeesPage.selectEntryByName(id, id);
         employeesPage.clickEdit();
         let editPage = new EditPage();
         editPage.clickDelete();
         employeesPage = new EmployeesPage();
         employeesPage.checkEmployeeNotExistInTheList(id);
     })
- 
+
 })

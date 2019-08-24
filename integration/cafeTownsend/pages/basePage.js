@@ -1,9 +1,9 @@
-class BasePage{
-    constructor(){
+class BasePage {
+    constructor() {
+
+        // Elements validation on Base Page (should exist on each application page)   
         cy.log('Validating Base Page');
         cy.get('.main-view-wrapper').should('exist');
-        //cy.contains('p', 'Built with AngularJS, CoffeeScript, Bourbon and Rails.').should('exist');
-        //cy.contains('p', 'Get source code by Jens Krause @2012-2014').should('exist');
         cy.contains('a', 'AngularJS').as('angualrJS').should('exist');
         cy.contains('a', 'CoffeeScript').as('coffeeScript').should('exist');
         cy.contains('a', 'Bourbon').as('bourbon').should('exist');
@@ -11,35 +11,37 @@ class BasePage{
         cy.contains('a', 'Get source code').as('getCode').should('exist');
         cy.contains('a', 'Jens Krause').as('jensKrause').should('exist');
     }
-    
-    followAngularJSLink(){
+
+
+    // Common methods for Base Page (should be available on each application page)
+    followAngularJSLink() {
         cy.click('@angularJS');
-        cy.url().should('eq','https://angularjs.org');
+        cy.url().should('eq', 'https://angularjs.org');
     }
 
-    followCoffeeScriptLink(){
+    followCoffeeScriptLink() {
         cy.click('@coffeeScript');
-        cy.url().should('eq','http://coffeescript.org/');
+        cy.url().should('eq', 'http://coffeescript.org/');
     }
 
-    followBourbonLink(){
+    followBourbonLink() {
         cy.click('@bourbon');
-        cy.url().should('eq','https://www.bourbon.io');
+        cy.url().should('eq', 'https://www.bourbon.io');
     }
 
-    followRailsLink(){
+    followRailsLink() {
         cy.click('@rails');
-        cy.url().should('eq','https://rubyonrails.org/');
+        cy.url().should('eq', 'https://rubyonrails.org/');
     }
 
-    followGetSourceLink(){
+    followGetSourceLink() {
         cy.click('@getCode');
-        cy.url().should('eq','https://github.com/sectore/CafeTownsend-Angular-Rails');
+        cy.url().should('eq', 'https://github.com/sectore/CafeTownsend-Angular-Rails');
     }
 
-    followJensKrause(){
+    followJensKrause() {
         cy.click('@jensKrause');
-        cy.url().should('eq','http://www.jkrause.io');
+        cy.url().should('eq', 'http://www.jkrause.io');
     }
 }
 export default BasePage;

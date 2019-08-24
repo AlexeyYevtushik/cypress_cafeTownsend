@@ -2,6 +2,7 @@ import BaseLoggedInPage from './baseLoggedInPage.js';
 
 class EmployeesPage {
     constructor() {
+        // Validation of Employees Page elements (except common ones)      
         cy.server();
         cy.route('GET', '**/employees').as('employees');
         cy.log('Validating Employees Page');
@@ -14,6 +15,7 @@ class EmployeesPage {
         cy.get('ul[id="employee-list"').should('exist');
     }
 
+    // All (not common) page interactions (empty methods are created for future implementation)
     getBasePage() {
         return this.baseLoggedInPage;
     }
@@ -51,14 +53,14 @@ class EmployeesPage {
         cy.get('li[ng-repeat="employee in employees"]').eq(0).click();
     }
 
-    checkEmployeeExistsInTheList(firstName,lastName,startDate,email) {//,lastName,startDate,email){
+    checkEmployeeExistsInTheList(firstName, lastName, startDate, email) {//,lastName,startDate,email){
         cy.wait('@employees').then(function (xhr) {
             const response = xhr.responseBody;
             for (var i = 0; i < response.length; i++) {
-                if(response[i]['first_name'] === firstName) {
-                    expect(response[i]).to.have.property('last_name',lastName);
-                    expect(response[i]).to.have.property('start_date',startDate);
-                    expect(response[i]).to.have.property('email',email);
+                if (response[i]['first_name'] === firstName) {
+                    expect(response[i]).to.have.property('last_name', lastName);
+                    expect(response[i]).to.have.property('start_date', startDate);
+                    expect(response[i]).to.have.property('email', email);
                 }
             }
         })
@@ -69,7 +71,7 @@ class EmployeesPage {
             const response = xhr.responseBody;
             let flag = true;
             for (var i = 0; i < response.length; i++) {
-               if(response[i]['first_name'] === firstName) flag = false;
+                if (response[i]['first_name'] === firstName) flag = false;
             }
             expect(flag).to.be.eq(true);
         })
